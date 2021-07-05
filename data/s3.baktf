@@ -1,0 +1,24 @@
+terraform {
+  required_providers {
+    aws = {
+      version = "~> 3.0"
+    }
+  }
+  required_version = ">= 0.13"
+}
+
+provider "aws" {
+    shared_credentials_file = "~/.aws/credentials"
+    # profile = "terraform"
+    region = "us-east-2"
+}
+
+
+resource "aws_s3_bucket" "s3test992334441" {
+  bucket = "s3test992334441"
+  acl    = "private"
+
+  tags = {
+    Name        = "s3test992334441"
+      }
+}
